@@ -1,0 +1,168 @@
+version: "3.1"
+intents:
+  - affirm
+  - automata_definition
+  - bot_challenge
+  - deny
+  - deterministic_finite_automata_definition
+  - finite_automata_definition
+  - finite_automata_types
+  - goodbye
+  - greet
+  - mood_great
+  - mood_unhappy
+  - extend_state_transition_function
+  - language_accepted_by_DFA
+responses:
+  utter_greet:
+    - custom:
+        metadata:
+          - type: text
+            data: string
+          - type: ul
+            data:
+              - buoc 1
+              - buoc 2
+              - buoc 3
+          - type: image
+            data: https://images.template.net/home/13/3ceea7ca-1e12-46c3-9cac-e0a16ba9432c.png
+  utter_cheer_up:
+    - custom:
+        metadata:
+          - type: text
+            data: "Here is something to cheer you up:"
+  utter_did_that_help:
+    - custom:
+        metadata:
+          - type: text
+            data: Did that help you?
+  utter_happy:
+    - custom:
+        metadata:
+          - type: text
+            data: Great, carry on!
+  utter_goodbye:
+    - custom:
+        metadata:
+          - type: text
+            data: Bye
+  utter_iamabot:
+    - custom:
+        metadata:
+          - type: text
+            data: I am a bot, powered by Rasa.
+  utter_automata_definition:
+    - custom:
+        metadata:
+          - type: text
+            data: "- Automata là một khái niệm trong lĩnh vực khoa học máy tính và toán học, thường được sử dụng để mô hình hóa hệ thống tự động hoặc quy trình tự động. Một automaton (còn được gọi là máy tự động) là một mô hình trừu tượng của một hệ thống có thể tự động thực hiện một loạt các hành động hoặc chuyển đổi giữa các trạng thái khác nhau dựa trên đầu vào nhất định."
+  utter_finite_automata_definition:
+    - custom:
+        metadata:
+          - type: text
+            data: "- Ôtômát hữu hạn (FA) là một mô hình tính toán của hệ thống với sự mô tả bởi các input và output. Tại mỗi thời điểm, hệ thống có thể được xác định ở một trong số hữu hạn các cấu hình nội bộ gọi là các trạng thái (states). Mỗi trạng thái của hệ thống thể hiện sự tóm tắt các thông tin liên quan đến những input đã chuyển qua và xác định các phép chuyển kể tiếp trên dãy input tiếp theo."
+  utter_finite_automata_types:
+    - custom:
+        metadata:
+          - type: text
+            data: "- Có 2 loại Ôtômát hữu hạn (FA) là: đơn định (DFA) và không đơn định (NFA)"
+  utter_deterministic_finite_automata_definition:
+    - custom:
+        metadata:
+          - type: text
+            data: "- Một ôtômát hữu hạn đơn định (DFA) - gọi tắt là FA -gồm một tập hữu hạn các trạng thái và một tập các phép chuyển từ trạng thái này tới trạng thái khác trên các ký hiệu nhập (input symbols) được chọn từ một bộ chữ cái 2 nào đó. Mỗi ký hiệu nhập có đúng một phép chuyển khỏi mỗi trạng thái (có thể chuyển trở về chính nó). Một trạng thái, thường ký hiệu là q0, gọi là trạng thái bắt đầu (trạng thái ôtômát bắt đầu). Một số trạng thái được thiết kế như là các trạng thái kết thúc hay trạng thái chấp nhận."
+          - type: text
+            data: "- Dưới đây là hình ảnh ví dụ về sơ đồ chuyển của một DFA:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1706001365/images_chatbot_LV/DFA_1_jwkyxq.png
+          - type: text
+            data: "- Một cách hình thức ta định nghĩa ôtômata hữu hạn là bộ phận gồm 5 thành phần (Q, Σ, δ, q0, F) trong đó:"
+          - type: ul
+            data:
+              - "Q là tập hợp hữu hạn các trạng thái."
+              - "Σ là bộ chữ cái nhập hữu hạn."
+              - "δ là hàm chuyển ánh xạ từ QxΣ -> Q, tức là một trạng thái được cho bởi phép chuyển từ trạng thái q trên ký hiệu nhập a."
+              - "q0 ∈ Q là trạng thái bắt đầu."
+              - "F ∈ Q là trạng thái kết thúc."
+          - type: suggest
+            data:
+              - "Hàm chuyển trạng thái mở rộng"
+              - "Ngôn ngữ được chấp nhận bởi DFA"
+  utter_extend_state_transition_function:
+    - custom:
+        metadata:
+          - type: text
+            data: "- Để co thể mô tả một cách hình thức hoạt động của một DFA trên chuỗi, ta mở rộng hàm chuyển δ để áp dụng đối với một trạng thái trên từng ký hiệu. Ta định nghĩa hàm chuyển δ như một ánh xạ từ QxΣ* -> Q với ý nghĩa δ(q, w) là trạng thái DFA chuyển đổi đến từ trạng thái q trên chuỗi w. Một cách hình thức, ta định nghĩa:"
+          - type: text
+            data: "1. δ(q, ε) = q"
+          - type: text
+            data: "2. δ(q, wa) = δ(δ(q, w), a), với mọi chuỗi w và ký hiệu nhập a."
+          - type: text
+            data: "- Một số quy ước về ký hiệu:"
+          - type: ul
+            data:
+              - "Q là tập các trạng thái. Ký hiệu q và p (có hoặc không cso chỉ số) là các trạng thái, q0 là trạng thái bắt đầu."
+              - "Σ là bộ chữ cái nhập. Ký hiệu a, b (có hoặc không có chỉ số) và các chữ số là các ký hiệu nhập."
+              - "δ là hàm chuyển."
+              - "F là tập các trạng thái kết thúc."
+              - "w, x, y và z (có hoặc không có chỉ số) là các chuỗi ký hiệu nhập."
+  utter_language_accepted_by_DFA:
+    - custom:
+        metadata:
+          - type: text
+            data: "- Một chuỗi w được chấp nhận bởi ôtômát hữu hạn M (Q, Σ, δ, q0, F) nếu δ(q0, w) = p với p ∈ F. Ngôn ngữ được chấp nhận bởi M, ký hiệu L(M) là tập hợp:"
+          - type: textMiddle
+            data: "L(M) = { w | δ(q0, w) ∈ F}"
+          - type: text
+            data: "- Duới đây là vi dụ kiểm tra xem ngôn ngữ có được chấp nhận bởi DFA không."
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1706001365/images_chatbot_LV/DFA_1_jwkyxq.png
+          - type: text
+            data: "- Xét sơ đồ chuyển trên. Theo khái niệm hình thức, ta có DFA được xác định bởi M(Q, Σ, δ, q0, F), trong đó:"
+          - type: ul
+            data:
+              - "Q = {q0, q1, q2, q3}"
+              - "Σ = {0, 1}"
+              - "F = {q0}"
+          - type: text
+            data: "- Ta có hàm chuyển như sau:"
+          - type: tableTransition
+            data:
+              - tr:
+                  - "Trạng thái"
+                  - "0"
+                  - "1"
+              - tr:
+                  - "q0"
+                  - "q2"
+                  - "q1"
+              - tr:
+                  - "q1"
+                  - "q3"
+                  - "q0"
+              - tr:
+                  - "q2"
+                  - "q0"
+                  - "q3"
+              - tr:
+                  - "q3"
+                  - "q1"
+                  - "q2"
+          - type: text
+            data: "Giả sử chuỗi w = 110101 được nhập vào M."
+          - type: text
+            data: "Ta có δ(q0, 1) = q1 và δ(q1, 1) = q0, vậy:"
+          - type: textMiddle
+            data: "δ(q0, 11) = δ(δ(q0, 1), 1) = δ(q1, 1) = q0."
+          - type: text
+            data: "Tiếp tục δ(q0, 0) = q2, vậy δ(q0, 110) = δ(δ(q0, 11), 0) = q2."
+          - type: text
+            data: "Tiếp tục ta có  δ(q0, 1101) = q3, δ(q0, 11010) = q1."
+          - type: text
+            data: "Và cuối cùng δ(q0, 110101) = q0 ∈ F"
+          - type: text
+            data: "Vậy 110101 thuộc L(M). Ta có thể chứng minh rằng L(M) là tập mọi chuỗi có số chẵn số 0 và số chẵn số 1."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

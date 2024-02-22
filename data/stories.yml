@@ -1,0 +1,62 @@
+version: "3.1"
+
+stories:
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
+
+  - story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
+
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: automata definition
+    steps:
+      - intent: automata_definition
+      - action: utter_automata_definition
+
+  - story: finite automata definition
+    steps:
+      - intent: finite_automata_definition
+      - action: utter_finite_automata_definition
+
+  - story: utter finite automata types
+    steps:
+      - intent: finite_automata_types
+      - action: utter_finite_automata_types
+
+  - story: deterministic finite automata definition
+    steps:
+      - intent: deterministic_finite_automata_definition
+      - action: utter_deterministic_finite_automata_definition
+
+  - story: interactive_story_1
+    steps:
+      - intent: deterministic_finite_automata_definition
+      - action: utter_deterministic_finite_automata_definition
+
+  - story: extend_state_transition_function
+    steps:
+      - intent: extend_state_transition_function
+      - action: utter_extend_state_transition_function
+  - story: language_accepted_by_DFA
+    steps:
+      - intent: language_accepted_by_DFA
+      - action: utter_language_accepted_by_DFA

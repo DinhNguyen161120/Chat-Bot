@@ -1,0 +1,125 @@
+version: "3.1"
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+      - chào
+      - xin chào
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+  - intent: affirm
+    examples: |
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+  - intent: automata_definition
+    examples: |
+      - automata là gì?
+      - automata
+      - định nghĩa automata
+      - bạn có biết automata không?
+  - intent: finite_automata_definition
+    examples: |
+      - finite automata là gì?
+      - finite automata
+      - fa
+      - định nghĩa fa
+      - định nghĩa finite automata
+      - bạn có biết finite automata không?
+      - ôtômat hữu hạn là gì?
+      - ôtômat hữu hạn
+  - intent: finite_automata_types
+    examples: |
+      - các loại finite automata
+      - finite automata có mấy loại?
+      - các loại ôtômat hữu hạn
+      - ôtômat hữu hạn có mấy loại?
+  - intent: deterministic_finite_automata_definition
+    examples: |
+      - dfa
+      - dfa là gì?
+      - định nghĩa dfa
+      - ôtômat hữu hạn đơn định
+      - ôtômat hữu hạn đơn định là gì?
+      - định nghĩa ôtômat hữu hạn đơn định
+      - bạn có biết dfa là gì không?
+  - intent: extend_state_transition_function
+    examples: |
+      - hàm chuyển trạng thái mở rộng là gì?
+      - hàm chuyển trạng thái mở rộng
+  - intent: language_accepted_by_DFA
+    examples: |
+      - ví dụ về ngôn ngữ chấp nhận bởi dfa
+      - ngôn ngữ chấp nhận bởi dfa

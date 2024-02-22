@@ -1,0 +1,28 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdWpKfm1iSGJ+SmpaZlwlSW1sbCwCVLiFS": "utter_automata_definition",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdWpKfm1iSGJ+SmpaZlwlSW0vAxNKSktSieGwaiTM9FgCFyEX+": "action_listen",
+    "eJwti9EJgDAMBVfJAE7QVURC0AgBTaVJRSjd3VD9endwb259gnYVvpFWl6wJ2geodHKCXw4xZ422GpdoREM9AT+xG5qTM3ohNRn9XnUce19ebjgm5Q==": "utter_extend_state_transition_function",
+    "eJydjdEJgDAQQ1fpAE7QVUSOoicU9JRrKkLp7h7V/4JfSeAlGUsdXDmVLwoz4iHeldeQhJ29+8IWE1iMzYnVmCgW4R3fpgslBDBBg6TY+DVLK9bOfAZYqbvy43d6AMYNVrc=": "action_listen",
+    "eJwti9EJgDAMBVfJAE7QVURC0AgBm5Y29adkd4P69+5xt05fYNbGN9JuUjTB/AYqZU7wwyXdWMMdnVs4ooGW4BQVY6RhJZMRHvw+kbhvD4iBJDA=": "utter_finite_automata_definition",
+    "eJyVjVEKgDAMQ6/SA3iCXUWkFK1QcJ1snT9jd7eo34p/SXhJxtYHaHvmA2k2SRqg3QKVIgd4zCbFWJ2thbMzom4twCoqxkjVUiQjXPhKvNI/hqsZZ3zp//qaTrHrTpg=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taS2NhYA6dwbhQ==": "utter_greet",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpbhMiAUAQvc0lw==": "action_listen",
+    "eJydjlEKgCAQRK/iATqBV4lYxJYUchVdgxDv3oL9G/0MM/B4zNr6olrKeIGx7CNp1UYBMgG1esfpCyMJWwtmYTzJZK2OjMh94qjMmGGg/wyTFyHGHSo5k9L97Yx1KFnTzLU9XiFuqQ==": "utter_did_that_help",
+    "eJytjlEKgCAQRK/iATqBV4lYRIcUahVbg5DunlD/RvQzzMDjMWM9B1VTxk7GSoisVb0LsVmh1TOWsAm4sWVDbkzgNkWrOQNydhxFBJlu9Juh82KN0VFhb1I63p2xHi1L+sPlgiPxRshj6QqnC1EGjek=": "action_listen",
+    "eJytj1EKwyAQRK/iAXoCr1LCInGIQrKKWQNFvHsX7L+h7c8yA4/H7LP1h2m54CK3SkxsTRuB2B2w5lP2eApY2XqiKBNZq1izFUD6xFFFUGig3xkmK46UPFUOLufXvTFrgN6a/+Hy0ZMEJxSw/yic/OnBqlje0A2nVg==": "utter_goodbye",
+    "eJytj9EJwzAMRFfxAJ3Aq4Qg3PiIDYlsHLkQTHavIP0NDm1/hA6Op6ehHQ/TcsGL3CQxsTXtXIjdCms+YYmbgLVbNxTtRNYo1swFkKPDqCIodFa/I3Qs1pQ8VQ4u5/2ezBSgs+Z/sHz0JMEJBSw/Ajt/evBNp1mPPndcIcY3+fTA0w==": "action_listen",
+    "eJwtytEJwCAMRdFVMkAncJVSQpAUAjWKPgtF3L1C+3cP3H3MjUaperNEWPZA4wt2SRrox2UN6uvtTet6zBcR6DQ3KEtHTgJhPEXbnMcL2V8iPA==": "utter_finite_automata_types",
+    "eJyNjVEKgCAQRK/iATqBV4lYlthgIVfRMQjx7gn1GdTfPHgzM7c+uZayHMQrNJp37Q5kHMS7B3YtEBtuLZKHozYQ3m1qCiGuiIHBhDNJ6R+bFZBM79W/D8sFRglIvA==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohJzEvvTQxPRWoOzm1oCQ1JT6pMt7FzbG2NhYAOzEirg==": "utter_language_accepted_by_DFA",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohJzEvvTQxPRWoOzm1oCQ1JT6pMt7FzbGWgLGlJSWpRfE4dZNgTywAZi9KEg==": "action_listen",
+    "eJwtjNEJgDAMRFfpAE7QVURCaE8I2FTa6E/p7gb1797d49YxlzDOhps4mVSNYXyBlAti+OGQblB3r47mjqijxZBhaEXUZ0m0ezAQX1YLG1PG2/jBnNsDrqAqAw==": "utter_deterministic_finite_automata_definition",
+    "eJyljtEJgDAMRFfpAE7QVURCaCMEbCpt6k/p7gb1X8G/u8vxLnMfk+t7oQMwKGfxrt8CBBN595iNq5JYt1Uq1mExq95FUiqJxc4cYDWhBNg0J1SESFdigPEy09Q48Jn244/lBEN7YBE=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpeSZQMAVufn5KSDzE4EGxQIAPEFQdQ==": "utter_happy",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpeSZQMAVufn5KSDzE4l0SkZiQUElfmNiAVKZa5w=": "action_listen",
+    "eJydjlEKgCAQBa/iATqBV4lYllxSsFV0DUK8e4L9G/29gWF4a22LqjHRBbiLC6xVHQMYT9LqBe+yEHe3ZErdcdxRtDoSkbRJo4hQgqH+K0xenCEYKGwxxvvbGeMMiEUBSz7OgtsDj3Vwpw==": "action_listen",
+    "eJyljtEJwzAMBVfxAJ3Aq5QiRK3Uglg2ihwIxrvHkPy7tH/vwXHcs/WHa0VpB3wbZ/GuXQMEE3l3n5U3Ixls3UgHwzKuefdRIusTRzUjhQv9zTCpSDkHqBKxlOO7mMABLKJBpLX8J5y04bKwpt5fJ3qZitk=": "utter_happy",
+    "eJyljmEKwyAMRq/iAXYCr1JKCDOdgRoljYMhvfsE93dYtn/54PHylnbeXCtKT8C7cRbv2jhAMJF3n7HzYSSdrQdpZ1j6NO8eSmTnxFHNSGGgvxkmFSnnAFUilvK6FhM4gEU0iLSX/4STNtw21nStavz7qljfLfykVA==": "action_listen"
+  }
+}
