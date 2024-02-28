@@ -60,3 +60,27 @@ stories:
     steps:
       - intent: language_accepted_by_DFA
       - action: utter_language_accepted_by_DFA
+  - story: language_accepted_by_DFA
+    steps:
+      - intent: definition_NFA
+      - action: utter_NFA_definition
+  - story: language_accepted_by_DFA
+    steps:
+      - intent: equivalent_between_NFA_and_DFA
+      - action: utter_equivalent_between_NFA_and_DFA
+  - story: definition_nfa_with_epsilon
+    steps:
+      - intent: definition_NFA_with_epsilon
+      - action: utter_definition_nfa_epsilon
+  - story: calculate_epsilon_closure
+    steps:
+      - intent: definition_NFA_with_epsilon
+      - action: utter_epsilon_closure
+  - story: language_accepted_by_nfa_epsilon
+    steps:
+      - intent: language_accepted_by_nfa_epsilon
+      - action: utter_language_accepted_by_nfa_epsilon
+  - story: equivalent_between_nfaε_with_nfa
+    steps:
+      - intent: equivalent_between_nfaε_with_nfa
+      - action: utter_equivalent_between_nfaε_with_nfa

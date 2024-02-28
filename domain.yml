@@ -13,6 +13,12 @@ intents:
   - mood_unhappy
   - extend_state_transition_function
   - language_accepted_by_DFA
+  - definition_NFA
+  - equivalent_between_NFA_and_DFA
+  - definition_NFA_with_epsilon
+  - calculate_epsilon_closure
+  - language_accepted_by_nfa_epsilon
+  - equivalent_between_nfaε_with_nfa
 responses:
   utter_greet:
     - custom:
@@ -92,7 +98,7 @@ responses:
     - custom:
         metadata:
           - type: text
-            data: "- Để co thể mô tả một cách hình thức hoạt động của một DFA trên chuỗi, ta mở rộng hàm chuyển δ để áp dụng đối với một trạng thái trên từng ký hiệu. Ta định nghĩa hàm chuyển δ như một ánh xạ từ QxΣ* -> Q với ý nghĩa δ(q, w) là trạng thái DFA chuyển đổi đến từ trạng thái q trên chuỗi w. Một cách hình thức, ta định nghĩa:"
+            data: "- Để có thể mô tả một cách hình thức hoạt động của một DFA trên chuỗi, ta mở rộng hàm chuyển δ để áp dụng đối với một trạng thái trên từng ký hiệu. Ta định nghĩa hàm chuyển δ như một ánh xạ từ QxΣ* -> Q với ý nghĩa δ(q, w) là trạng thái DFA chuyển đổi đến từ trạng thái q trên chuỗi w. Một cách hình thức, ta định nghĩa:"
           - type: text
             data: "1. δ(q, ε) = q"
           - type: text
@@ -162,6 +168,139 @@ responses:
             data: "Và cuối cùng δ(q0, 110101) = q0 ∈ F"
           - type: text
             data: "Vậy 110101 thuộc L(M). Ta có thể chứng minh rằng L(M) là tập mọi chuỗi có số chẵn số 0 và số chẵn số 1."
+  utter_NFA_definition:
+    - custom:
+        metadata:
+          - type: text
+            data: Xét một dạng sửa đổi mô hình DFA để chấp nhận không, một hoặc nhiều hơn một phép chuyển từ một trạng thái trên cùng một kí hiệu nhập. Mô hình mới này gọi là ôtômát hữu hạn không đơn định NFA (Nondeterministic Finite Automata).
+          - type: text
+            data: Một chuỗi ký hiệu nhập a1, a2, a3,... được chấp nhận bởi một NFA nếu có tồn tại một chuỗi các phép chuyển, tương ứng với chuỗi nhập, từ trạng thái bắt đầu đến trạng thái kết thúc. Chẳng hạn chuỗi 01001 được chấp nhận bởi ôtômát trong hình dưới đây vì có chuỗi phép chuyển qua các trạng thái q0, q1, q2, q3, q4 có nhãn tương ứng là 0, 1, 0, 0, 1. NFA này chấp nhận tất cả các chuỗi có 2 số 0 liên tiếp hoặc hai số một liên tiếp.
+          - type: text
+            data: "Sơ đồ chuyển của một NFA:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1708583167/images_chatbot_LV/NFA_1_rusmti.png
+          - type: text
+            data: "- Xét sơ đồ chuyển trên. Theo khái niệm hình thức, ta có NFA được xác định bởi M(Q, Σ, δ, q0, F), trong đó:"
+          - type: ul
+            data:
+              - "Q = {q0, q1, q2, q3, q4}"
+              - "Σ = {0, 1}"
+              - "F = {q2, q4}"
+          - type: text
+            data: "Xét chuỗi nhập w = 110101"
+          - type: text
+            data: "Ta có δ(q0, 0) =  {q0, q3}"
+          - type: text
+            data: "δ(q0, 01) = δ(δ(q0, 0), 1) = δ({q0, q3}, 1) = δ(q0, 1) U δ(q3, 1) = {q0, q1} "
+          - type: text
+            data: "Tương tự ta có thể tính:"
+          - type: text
+            data: "δ(q0, 010) = {q0, q3}."
+          - type: text
+            data: "δ(q0, 0100) = {q0, q3, q4}."
+          - type: text
+            data: "δ(q0, 01001) = {q0, q1, q4}."
+          - type: text
+            data: "Do q4 ∈ F nên w thuộc L(M)"
+  utter_equivalent_between_NFA_and_DFA:
+    - custom:
+        metadata:
+          - type: text
+            data: "Vì mỗi DFA là một NFA, nên lớp ngôn ngữ được chấp nhận bởi NFA cũng bao gồm các tập chính quy (đây chính là ngôn ngữ được chấp nhận bởi DFA). Tuy nhiên không có cơ sở nào để nỏi rằng NFA chỉ chấp nhận duy nhất các tập hợp này. Điều đó cho thấy DFA có thể mô phỏng hoạt động của NFA, nghĩa là với mỗi NFA ta có thể xây dựng một DFA tương đương (chấp nhận cùng một ngôn ngữ với nó). Đặt một DFA mô phỏng hoạt động của NFA là cho phép các trạng thái của DFA tương ứng với tập trạng thái của NFA. Tại mỗi thời điểm DFA lưu trữ trong bô điều khiển tất cả các trạng thái mà NFA có thể chuyển đến khi đọc cùng một input như DFA."
+  utter_definition_nfa_epsilon:
+    - custom:
+        metadata:
+          - type: text
+            data: "Một mô hình NFA cho phép các phép chuyển trên nhãn rỗng ε là NFA với ε-dịch chuyển (NFAε)."
+          - type: text
+            data: "Dưới đây là một NFA với ε-dịch chuyển"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1708586351/images_chatbot_LV/NFA_epsilon_wetwpf.png
+  utter_epsilon_closure:
+    - custom:
+      metadata:
+        - type: image
+          data: https://res.cloudinary.com/ndd1611/image/upload/v1708586351/images_chatbot_LV/NFA_epsilon_wetwpf.png
+        - type: text
+          data: "Trong hình trên ε-CLOSURE(q0) = {q0, q1, q2} vì đường đi chỉ có một đỉnh q0 (không có cung trên đường đi) là đường đi từ q0 đến q0 có tất cả các cạnh nhãn là ε. đường đi q0, q1 chỉ ra rằng q1 thuộc ε-CLOSURE(q0) và đường đi q0, q1, q2 chỉ ra rằng q2 thuộc ε-CLOSURE(q0)."
+  utter_language_accepted_by_nfa_epsilon:
+    - custom:
+      metadata:
+        - type: image
+          data: https://res.cloudinary.com/ndd1611/image/upload/v1708586351/images_chatbot_LV/NFA_epsilon_wetwpf.png
+        - type: text
+          data: "Xét sơ đồ chuyển của hình trên, theo khái niệm hình thức, ta có NFA M({q0, q1, q2}, {0, 1, 2}, δ, q0, {q2}) với hàm δ như sau:"
+        - type: text
+          data: "Trong hình trên ε-CLOSURE(q0) = {q0, q1, q2} vì đường đi chỉ có một đỉnh q0 (không có cung trên đường đi) là đường đi từ q0 đến q0 có tất cả các cạnh nhãn là ε. đường đi q0, q1 chỉ ra rằng q1 thuộc ε-CLOSURE(q0) và đường đi q0, q1, q2 chỉ ra rằng q2 thuộc ε-CLOSURE(q0)."
+        - type: tableTransition
+          data:
+            - tr:
+                - "Trạng thái"
+                - "0"
+                - "1"
+                - "2"
+                - "ε"
+            - tr:
+                - "q0"
+                - "{q0}"
+                - "∅"
+                - "∅"
+                - "{q1}"
+            - tr:
+                - "q1"
+                - "∅"
+                - "{q1}"
+                - "∅"
+                - "{q1}"
+            - tr:
+                - "q2"
+                - "∅"
+                - "∅"
+                - "{q2}"
+                - "∅"
+        - type: text
+          data: "Xét chuỗi nhập w = 012"
+        - type: text
+          data: "Ta cần tính δ*(q0, 012)"
+        - type: text
+          data: "Ta có: δ*(q0, ε) = ε-CLOSURE(q0) = {q0, q1, q2}"
+        - type: text
+          data: "Vậy δ*(q0, ε) = ε-CLOSURE(δ(δ*(q0, ε), 0))"
+        - type: text
+          data: "= ε-CLOSURE(δ({q0, q1, q2}, 0))"
+        - type: text
+          data: "= ε-CLOSURE(δ(q0, 0) U δ(q1, 0) U δ(q2, 0))"
+        - type: text
+          data: "= ε-CLOSURE({q0} U ∅ U ∅)"
+        - type: text
+          data: "= ε-CLOSURE({q0}) = {q0, q1, q2}"
+        - type: text
+          data: "và δ*(q0, 01) = ε-CLOSURE(δ(δ*(q0, 0), 1))"
+        - type: text
+          data: "= ε-CLOSURE(δ({q0, q1, q2},1))"
+        - type: text
+          data: "= ε-CLOSURE(δ(q0, 1) U δ(q1, 1) U δ(q2, 1))"
+        - type: text
+          data: "= ε-CLOSURE(∅ U {q1} U ∅)"
+        - type: text
+          data: "= ε-CLOSURE({q1}) = {q1, q2}"
+        - type: text
+          data: "=> δ*(q0, 012) = ε-CLOSURE(δ(δ*(q0, 01), 2))"
+        - type: text
+          data: "= ε-CLOSURE(δ({q1, q2}, 2))"
+        - type: text
+          data: "= ε-CLOSURE(δ(q1, 2) U δ(q2, 2))"
+        - type: text
+          data: "= ε-CLOSURE(∅ U {q2})"
+        - type: text
+          data: "= ε-CLOSURE({q2}) = {q2}"
+        - type: text
+          data: "Do δ*(q0, 012) có chứa trạng thái q2 ∈ F nên chuỗi w ∈ L(M)."
+  utter_equivalent_between_nfaε_with_nfa:
+    - custom:
+      metadata:
+        - type: text
+          data: "Tương tự như NFA, khả năng có thể thực hiện phép chuyển trên nhãn ε của NFAε cũng không làm cho NFAε chấp nhận được các tập hợp chính quy. Ta có thể dẫn chứng điều này bằng cách mô phỏng hoạt động của một NFAε bởi một NFA không có ε-dịch chuyển."
 
 session_config:
   session_expiration_time: 60

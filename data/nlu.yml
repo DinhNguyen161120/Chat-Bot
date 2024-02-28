@@ -123,3 +123,38 @@ nlu:
     examples: |
       - ví dụ về ngôn ngữ chấp nhận bởi dfa
       - ngôn ngữ chấp nhận bởi dfa
+  - intent: definition_NFA
+    examples: |
+      - nfa 
+      - nfa là gì?
+      - định nghĩa nfa
+      - ôtômat hữu hạn không đơn định
+      - ôtômat hữu hạn không đơn định là gì?
+      - định nghĩa ôtômat hữu hạn không đơn định
+      - bạn có biết nfa là gì không?
+  - intent: equivalent_between_NFA_and_DFA
+    examples: |
+      - sự tương đương giữa NFA và DFA
+      - sự tương đương giữa DFA và NFA
+      - sự tương đương giữa nfa và dfa
+      - sự tương đương giữa dfa và nfa
+      - hãy nêu sự tương đương giữa nfa và dfa
+      - hãy nêu sự tương đương giữa dfa và nfa
+  - intent: definition_NFA_with_epsilon
+    examples: |
+      - hãy nêu định nghĩa nfa với epsilon
+      - nfa với epsilon dịch chuyển là gì?
+      - nfaε là gì?
+  - intent: calculate_epsilon_closure
+    examples: |
+      - cách tính epsilon closure
+      - epsilon closure là gì?
+  - intent: language_accepted_by_nfa_epsilon
+    examples: |
+      - ví dụ về ngôn ngữ chấp nhận bởi nfa với epsilon dịch chuyển
+      - ngôn ngữ chấp nhận bởi nfa epsilon dịch chuyển
+  - intent: equivalent_between_nfaε_with_nfa
+    examples: |
+      - sự tương đương của nfaε với nfa
+      - sự tương đương của nfa có ε-dịch chuyển với nfa không có ε-dịch chuyển
+      - sự tương đương của nfa không có epsilon dịch chuyển với nfa có epsilon dịch chuyển
