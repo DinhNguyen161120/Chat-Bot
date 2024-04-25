@@ -1,32 +1,6 @@
 version: "3.1"
 
 stories:
-  - story: happy path
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_great
-      - action: utter_happy
-
-  - story: sad path 1
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_did_that_help
-      - intent: affirm
-      - action: utter_happy
-
-  - story: sad path 2
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_cheer_up
-      - action: utter_did_that_help
-      - intent: deny
-      - action: utter_goodbye
-
   - story: automata definition
     steps:
       - intent: automata_definition
@@ -74,7 +48,7 @@ stories:
       - action: utter_definition_nfa_epsilon
   - story: calculate_epsilon_closure
     steps:
-      - intent: definition_NFA_with_epsilon
+      - intent: calculate_epsilon_closure
       - action: utter_epsilon_closure
   - story: language_accepted_by_nfa_epsilon
     steps:
@@ -84,3 +58,15 @@ stories:
     steps:
       - intent: equivalent_between_nfaε_with_nfa
       - action: utter_equivalent_between_nfaε_with_nfa
+  - story: transform_nfaε_to_nfa
+    steps:
+      - intent: transform_nfaε_to_nfa
+      - action: utter_transform_nfaε_to_nfa
+  - story: transform_nfa_to_dfa
+    steps:
+      - intent: transform_nfa_to_dfa
+      - action: utter_transform_nfa_to_dfa
+  - story: regular_expression
+    steps:
+      - intent: regular_expression
+      - action: utter_regular_expression

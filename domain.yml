@@ -1,16 +1,9 @@
 version: "3.1"
 intents:
-  - affirm
   - automata_definition
-  - bot_challenge
-  - deny
   - deterministic_finite_automata_definition
   - finite_automata_definition
   - finite_automata_types
-  - goodbye
-  - greet
-  - mood_great
-  - mood_unhappy
   - extend_state_transition_function
   - language_accepted_by_DFA
   - definition_NFA
@@ -19,44 +12,10 @@ intents:
   - calculate_epsilon_closure
   - language_accepted_by_nfa_epsilon
   - equivalent_between_nfaε_with_nfa
+  - transform_nfaε_to_nfa
+  - transform_nfa_to_dfa
+  - regular_expression
 responses:
-  utter_greet:
-    - custom:
-        metadata:
-          - type: text
-            data: string
-          - type: ul
-            data:
-              - buoc 1
-              - buoc 2
-              - buoc 3
-          - type: image
-            data: https://images.template.net/home/13/3ceea7ca-1e12-46c3-9cac-e0a16ba9432c.png
-  utter_cheer_up:
-    - custom:
-        metadata:
-          - type: text
-            data: "Here is something to cheer you up:"
-  utter_did_that_help:
-    - custom:
-        metadata:
-          - type: text
-            data: Did that help you?
-  utter_happy:
-    - custom:
-        metadata:
-          - type: text
-            data: Great, carry on!
-  utter_goodbye:
-    - custom:
-        metadata:
-          - type: text
-            data: Bye
-  utter_iamabot:
-    - custom:
-        metadata:
-          - type: text
-            data: I am a bot, powered by Rasa.
   utter_automata_definition:
     - custom:
         metadata:
@@ -218,90 +177,332 @@ responses:
             data: https://res.cloudinary.com/ndd1611/image/upload/v1708586351/images_chatbot_LV/NFA_epsilon_wetwpf.png
   utter_epsilon_closure:
     - custom:
-      metadata:
-        - type: image
-          data: https://res.cloudinary.com/ndd1611/image/upload/v1708586351/images_chatbot_LV/NFA_epsilon_wetwpf.png
-        - type: text
-          data: "Trong hình trên ε-CLOSURE(q0) = {q0, q1, q2} vì đường đi chỉ có một đỉnh q0 (không có cung trên đường đi) là đường đi từ q0 đến q0 có tất cả các cạnh nhãn là ε. đường đi q0, q1 chỉ ra rằng q1 thuộc ε-CLOSURE(q0) và đường đi q0, q1, q2 chỉ ra rằng q2 thuộc ε-CLOSURE(q0)."
+        metadata:
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1708586351/images_chatbot_LV/NFA_epsilon_wetwpf.png
+          - type: text
+            data: "Trong hình trên ε-CLOSURE(q0) = {q0, q1, q2} vì đường đi chỉ có một đỉnh q0 (không có cung trên đường đi) là đường đi từ q0 đến q0 có tất cả các cạnh nhãn là ε. đường đi q0, q1 chỉ ra rằng q1 thuộc ε-CLOSURE(q0) và đường đi q0, q1, q2 chỉ ra rằng q2 thuộc ε-CLOSURE(q0)."
   utter_language_accepted_by_nfa_epsilon:
     - custom:
-      metadata:
-        - type: image
-          data: https://res.cloudinary.com/ndd1611/image/upload/v1708586351/images_chatbot_LV/NFA_epsilon_wetwpf.png
-        - type: text
-          data: "Xét sơ đồ chuyển của hình trên, theo khái niệm hình thức, ta có NFA M({q0, q1, q2}, {0, 1, 2}, δ, q0, {q2}) với hàm δ như sau:"
-        - type: text
-          data: "Trong hình trên ε-CLOSURE(q0) = {q0, q1, q2} vì đường đi chỉ có một đỉnh q0 (không có cung trên đường đi) là đường đi từ q0 đến q0 có tất cả các cạnh nhãn là ε. đường đi q0, q1 chỉ ra rằng q1 thuộc ε-CLOSURE(q0) và đường đi q0, q1, q2 chỉ ra rằng q2 thuộc ε-CLOSURE(q0)."
-        - type: tableTransition
-          data:
-            - tr:
-                - "Trạng thái"
-                - "0"
-                - "1"
-                - "2"
-                - "ε"
-            - tr:
-                - "q0"
-                - "{q0}"
-                - "∅"
-                - "∅"
-                - "{q1}"
-            - tr:
-                - "q1"
-                - "∅"
-                - "{q1}"
-                - "∅"
-                - "{q1}"
-            - tr:
-                - "q2"
-                - "∅"
-                - "∅"
-                - "{q2}"
-                - "∅"
-        - type: text
-          data: "Xét chuỗi nhập w = 012"
-        - type: text
-          data: "Ta cần tính δ*(q0, 012)"
-        - type: text
-          data: "Ta có: δ*(q0, ε) = ε-CLOSURE(q0) = {q0, q1, q2}"
-        - type: text
-          data: "Vậy δ*(q0, ε) = ε-CLOSURE(δ(δ*(q0, ε), 0))"
-        - type: text
-          data: "= ε-CLOSURE(δ({q0, q1, q2}, 0))"
-        - type: text
-          data: "= ε-CLOSURE(δ(q0, 0) U δ(q1, 0) U δ(q2, 0))"
-        - type: text
-          data: "= ε-CLOSURE({q0} U ∅ U ∅)"
-        - type: text
-          data: "= ε-CLOSURE({q0}) = {q0, q1, q2}"
-        - type: text
-          data: "và δ*(q0, 01) = ε-CLOSURE(δ(δ*(q0, 0), 1))"
-        - type: text
-          data: "= ε-CLOSURE(δ({q0, q1, q2},1))"
-        - type: text
-          data: "= ε-CLOSURE(δ(q0, 1) U δ(q1, 1) U δ(q2, 1))"
-        - type: text
-          data: "= ε-CLOSURE(∅ U {q1} U ∅)"
-        - type: text
-          data: "= ε-CLOSURE({q1}) = {q1, q2}"
-        - type: text
-          data: "=> δ*(q0, 012) = ε-CLOSURE(δ(δ*(q0, 01), 2))"
-        - type: text
-          data: "= ε-CLOSURE(δ({q1, q2}, 2))"
-        - type: text
-          data: "= ε-CLOSURE(δ(q1, 2) U δ(q2, 2))"
-        - type: text
-          data: "= ε-CLOSURE(∅ U {q2})"
-        - type: text
-          data: "= ε-CLOSURE({q2}) = {q2}"
-        - type: text
-          data: "Do δ*(q0, 012) có chứa trạng thái q2 ∈ F nên chuỗi w ∈ L(M)."
+        metadata:
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1708586351/images_chatbot_LV/NFA_epsilon_wetwpf.png
+          - type: text
+            data: "Xét sơ đồ chuyển của hình trên, theo khái niệm hình thức, ta có NFA M({q0, q1, q2}, {0, 1, 2}, δ, q0, {q2}) với hàm δ như sau:"
+          - type: text
+            data: "Trong hình trên ε-CLOSURE(q0) = {q0, q1, q2} vì đường đi chỉ có một đỉnh q0 (không có cung trên đường đi) là đường đi từ q0 đến q0 có tất cả các cạnh nhãn là ε. đường đi q0, q1 chỉ ra rằng q1 thuộc ε-CLOSURE(q0) và đường đi q0, q1, q2 chỉ ra rằng q2 thuộc ε-CLOSURE(q0)."
+          - type: tableTransition
+            data:
+              - tr:
+                  - "Trạng thái"
+                  - "0"
+                  - "1"
+                  - "2"
+                  - "ε"
+              - tr:
+                  - "q0"
+                  - "{q0}"
+                  - "∅"
+                  - "∅"
+                  - "{q1}"
+              - tr:
+                  - "q1"
+                  - "∅"
+                  - "{q1}"
+                  - "∅"
+                  - "{q1}"
+              - tr:
+                  - "q2"
+                  - "∅"
+                  - "∅"
+                  - "{q2}"
+                  - "∅"
+          - type: text
+            data: "Xét chuỗi nhập w = 012"
+          - type: text
+            data: "Ta cần tính δ*(q0, 012)"
+          - type: text
+            data: "Ta có: δ*(q0, ε) = ε-CLOSURE(q0) = {q0, q1, q2}"
+          - type: text
+            data: "Vậy δ*(q0, ε) = ε-CLOSURE(δ(δ*(q0, ε), 0))"
+          - type: text
+            data: "= ε-CLOSURE(δ({q0, q1, q2}, 0))"
+          - type: text
+            data: "= ε-CLOSURE(δ(q0, 0) U δ(q1, 0) U δ(q2, 0))"
+          - type: text
+            data: "= ε-CLOSURE({q0} U ∅ U ∅)"
+          - type: text
+            data: "= ε-CLOSURE({q0}) = {q0, q1, q2}"
+          - type: text
+            data: "và δ*(q0, 01) = ε-CLOSURE(δ(δ*(q0, 0), 1))"
+          - type: text
+            data: "= ε-CLOSURE(δ({q0, q1, q2},1))"
+          - type: text
+            data: "= ε-CLOSURE(δ(q0, 1) U δ(q1, 1) U δ(q2, 1))"
+          - type: text
+            data: "= ε-CLOSURE(∅ U {q1} U ∅)"
+          - type: text
+            data: "= ε-CLOSURE({q1}) = {q1, q2}"
+          - type: text
+            data: "=> δ*(q0, 012) = ε-CLOSURE(δ(δ*(q0, 01), 2))"
+          - type: text
+            data: "= ε-CLOSURE(δ({q1, q2}, 2))"
+          - type: text
+            data: "= ε-CLOSURE(δ(q1, 2) U δ(q2, 2))"
+          - type: text
+            data: "= ε-CLOSURE(∅ U {q2})"
+          - type: text
+            data: "= ε-CLOSURE({q2}) = {q2}"
+          - type: text
+            data: "Do δ*(q0, 012) có chứa trạng thái q2 ∈ F nên chuỗi w ∈ L(M)."
   utter_equivalent_between_nfaε_with_nfa:
     - custom:
-      metadata:
-        - type: text
-          data: "Tương tự như NFA, khả năng có thể thực hiện phép chuyển trên nhãn ε của NFAε cũng không làm cho NFAε chấp nhận được các tập hợp chính quy. Ta có thể dẫn chứng điều này bằng cách mô phỏng hoạt động của một NFAε bởi một NFA không có ε-dịch chuyển."
-
+        metadata:
+          - type: text
+            data: "Tương tự như NFA, khả năng có thể thực hiện phép chuyển trên nhãn ε của NFAε cũng không làm cho NFAε chấp nhận được các tập hợp chính quy. Ta có thể dẫn chứng điều này bằng cách mô phỏng hoạt động của một NFAε bởi một NFA không có ε-dịch chuyển."
+  utter_transform_nfaε_to_nfa:
+    - custom:
+        metadata:
+          - type: text
+            data: "Ví dụ: chuyển NFA với ε-dịch chuyển sang dạng NFA không có chứa ε-dịch chuyển"
+          - type: text
+            data: "Xét NFA với ε-dịch chuyển trong hình dưới đây:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1708586351/images_chatbot_LV/NFA_epsilon_wetwpf.png
+          - type: text
+            data: "Ta có:"
+          - type: "text"
+            data: "δ'(q0, 0) = ε-CLOSURE(δ(δ(q0, ε), 0)) = {q0, q1, q2}"
+          - type: "text"
+            data: "δ'(q0, 1) = ε-CLOSURE(δ(δ(q0, ε), 1)) = {q1, q2}"
+          - type: "text"
+            data: "δ'(q0, 2) = ε-CLOSURE(δ(δ(q0, ε), 2)) = {q2}"
+          - type: "text"
+            data: "δ'(q1, 0) = ε-CLOSURE(δ(δ(q1, ε), 0)) = ∅"
+          - type: "text"
+            data: "δ'(q1, 1) = ε-CLOSURE(δ(δ(q1, ε), 1)) = {q1, q2}"
+          - type: "text"
+            data: "δ'(q1, 2) = ε-CLOSURE(δ(δ(q1, ε), 2)) = {q2}"
+          - type: "text"
+            data: "δ'(q2, 0) = ε-CLOSURE(δ(δ(q2, ε), 0)) = ∅"
+          - type: "text"
+            data: "δ'(q2, 1) = ε-CLOSURE(δ(δ(q2, ε), 1)) = ∅"
+          - type: "text"
+            data: "δ'(q2, 2) = ε-CLOSURE(δ(δ(q2, ε), 2)) = {q2}"
+          - type: text
+            data: "Kết quả ta có được hàm chuyển như sau:"
+          - type: tableTransition
+            data:
+              - tr:
+                  - "Trạng thái"
+                  - "0"
+                  - "1"
+                  - "2"
+              - tr:
+                  - "q0"
+                  - "{q0, q1, q2}"
+                  - "{q1, q2}"
+                  - "{q2}"
+              - tr:
+                  - "q1"
+                  - "∅"
+                  - "{q1, q2}"
+                  - "{q2}"
+              - tr:
+                  - "q2"
+                  - "∅"
+                  - "∅"
+                  - "{q2}"
+                  - "∅"
+          - type: text
+            data: "Sơ đồ chuyển trạng thái của NFA không có chứa ε-dịch chuyển "
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710989083/images_chatbot_LV/NFA_With_Epsilon_To_NFA_poyhy1.png
+  utter_transform_nfa_to_dfa:
+    - custom:
+        metadata:
+          - type: text
+            data: "Ví dụ: chuyển NFA sang dạng DFA"
+          - type: text
+            data: "Xét NFA với ε-dịch chuyển trong hình dưới đây:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710990063/images_chatbot_LV/NFA_To_DFA_rseaks.png
+          - type: text
+            data: "Các bước xây dựng tập trạng thái cho DFA:"
+          - type: "text"
+            data: "1) Trạng thái bắt đầu của DFA: ε-CLOSURE(0) = {0, 1, 2, 4, 7} = A*"
+          - type: "text"
+            data: "2) ε-CLOSURE(δ(A, a)) = ε-CLOSURE({3, 8}) = {1, 2, 3, 4, 6, 7, 8} = B*"
+          - type: "text"
+            data: "3) ε-CLOSURE(δ(A, b)) = ε-CLOSURE({5}) = {1, 2, 4, 5, 6, 7} = C*"
+          - type: "text"
+            data: "4) ε-CLOSURE(δ(B, a)) = ε-CLOSURE({3, 8}) = B"
+          - type: "text"
+            data: "5) ε-CLOSURE(δ(B, b)) = ε-CLOSURE({5, 9}) = {1, 2, 4, 5, 6, 7, 9} = D*"
+          - type: "text"
+            data: "6) ε-CLOSURE(δ(C, a)) = ε-CLOSURE({3, 8}) = B"
+          - type: "text"
+            data: "7) ε-CLOSURE(δ(C, b)) = ε-CLOSURE({5}) = C"
+          - type: "text"
+            data: "8) ε-CLOSURE(δ(D, a)) = ε-CLOSURE({3, 8}) = B"
+          - type: "text"
+            data: "9) ε-CLOSURE(δ(D, b)) = ε-CLOSURE({5, 10}) = {1, 2, 4, 5, 6, 7, 10} = E*"
+          - type: "text"
+            data: "10) ε-CLOSURE(δ(E, a)) = ε-CLOSURE({3, 8}) = B"
+          - type: "text"
+            data: "11) ε-CLOSURE(δ(E, b)) = ε-CLOSURE({5}) = C"
+          - type: text
+            data: "Kết quả ta có được hàm chuyển như sau:"
+          - type: tableTransition
+            data:
+              - tr:
+                  - "Trạng thái"
+                  - "a"
+                  - "b"
+              - tr:
+                  - "A"
+                  - "B"
+                  - "C"
+              - tr:
+                  - "B"
+                  - "B"
+                  - "D"
+              - tr:
+                  - "C"
+                  - "B"
+                  - "C"
+              - tr:
+                  - "D"
+                  - "B"
+                  - "E"
+              - tr:
+                  - "E"
+                  - "B"
+                  - "C"
+          - type: text
+            data: "Sơ đồ chuyển trạng thái của DFA:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710991164/images_chatbot_LV/DFA_From_NFA_Epsilon_xkrwhq.png
+  utter_regular_expression:
+    - custom:
+        metadata:
+          - type: text
+            data: "Lớp ngôn ngữ được chấp nhận bởi một ôtômát hữu hạn cũng có thể được mô tả thông qua một biểu thức ngắn gọn và súc tích gọi là biểu thức chính quy."
+          - type: text
+            data: "A. Định nghĩa:"
+          - type: text
+            data: "Cho Σ là một bộ chữ cái. biểu thức chính quy trên Σ và các tập hợp mà chúng mô tả được định nghĩa một cách đệ quy như sau:"
+          - type: text
+            data: "1) ∅ là biểu thức chính quy ký hiệu cho tập rỗng"
+          - type: text
+            data: "2) ε là biểu thức chính quy ký hiệu cho tập {ε}"
+          - type: text
+            data: "3)với mọi a thuộc Σ, a là biểu thức chính quy ký hiệu cho tập {a}"
+          - type: text
+            data: "4) nếu r và s là các biểu thức chính quy ký hiệu cho các tập hợp R và S thì (r+s), (rs), (r*) là các biểu thức chính quy kí hiệu cho tập hợp RUS, RS, R* tương ứng"
+          - type: text
+            data: "Trong khi viết biểu thức chính quy ta có thể bỏ bớt các dấu ngoặc đơn với lưu ý rằng thứ tự ưu tiên của các phép toán sắp xếp theo thứ tự giảm dần là: phép bao đóng, phép nối kết, phép hợp. Chẳng hạn: ((0(1*)) + 1) có thể viết là 01* + 1"
+          - type: text
+            data: "Ví dụ về một số biểu thức chính quy cho các ngôn ngữ:"
+          - type: text
+            data: "- 00 là biểu thức chính quy biểu diễn tập {00}"
+          - type: text
+            data: "- (0+1)* kí hiệu cho tập hợp tất cả các chuỗi số 0 và số 1, kể cả chuỗi rỗng"
+          - type: text
+            data: "- (0+1)*00(0+10)* kí hiệu cho tập hợp tất cả các chuỗi số 0,1 có ít nhất hai số 0 liên tiếp."
+          - type: text
+            data: "B. một số tính chất đại số của biểu thức chính quy"
+          - type: text
+            data: "1) r + s = s + r"
+          - type: text
+            data: "2) r + r = r"
+          - type: text
+            data: "3) r + (s + t) = (r + s) + t"
+          - type: text
+            data: "4) r(st) = (rs)t"
+          - type: text
+            data: "5) r(s + t) = rs + rt"
+          - type: text
+            data: "6) (r + s)t = rt + st"
+          - type: text
+            data: "7) rε = εr = r"
+          - type: text
+            data: "8) ∅r = r∅ = ∅"
+          - type: text
+            data: "9) r + ∅ = r"
+          - type: text
+            data: "10) ∅* = ∅"
+          - type: text
+            data: "11) (ε + r*) = r*"
+          - type: text
+            data: "12) r + r* = r*"
+          - type: text
+            data: "13) (r*)* = r*"
+          - type: text
+            data: "14) (r*s*)* = (r + s)*"
+  utter_equivalent_between_OTOMATA_and_regular_expression:
+    - custom:
+        metadata:
+          - type: text
+            data: "Các ngôn ngữ được chấp nhận bởi ôtômát hữu hạn cũng là ngôn ngữ được mô tả bởi biểu thức chính quy. Nếu r là biểu thức chính quy thì tồn tại một NFA với ε-dịch chuyển chấp nhận L(r)."
+          - type: text
+            data: "Để xây dựng một NFA với ε-dịch chuyển ta cần sử dụng các phép toán sau. có 2 trường hợp:"
+          - type: text
+            data: "- Trường hợp 1: r không có phép toán, các NFA dưới đây thỏa mãn điều kiện"
+          - type: text
+            data: "   + r = ε:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710996290/images_chatbot_LV/r_equal_epsilon_ajx2d0.png
+          - type: text
+            data: "   + r = ∅:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710996343/images_chatbot_LV/r_equal_empty_q2hfit.png
+          - type: text
+            data: "   + r = a:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710996351/images_chatbot_LV/r_equal_a_h1hmf9.png
+          - type: text
+            data: "- Trường hợp 2: r có chứa các phép toán, trong trường hợp này ta có 3 trường hợp nhỏ khác:"
+          - type: text
+            data: "   + r = r1 + r2:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710997003/images_chatbot_LV/r1_plus_r2_zjsxje.png
+          - type: text
+            data: "   + r = r1r2:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710997007/images_chatbot_LV/r1_multi_r2_hgou4b.png
+          - type: text
+            data: "   + r = r1*"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710997013/images_chatbot_LV/phep_bao_dong_nxzgbx.png
+          - type: text
+            data: "Dưới đây là ví dụ chuyển xây dựng NFAε chấp nhận lớp ngôn ngữ được kí hiệu bởi biểu thức chính quy r = 01* + 1:"
+          - type: text
+            data: "r có dạng là r = r1 + r2 với r1 = 01* và r2 = 1, ta sẽ xây dựng NFA cho từng biểu thức con:"
+          - type: text
+            data: "- NFA cho r2 = 1:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710997468/images_chatbot_LV/example_r2_equal_1_htwukn.png
+          - type: text
+            data: "- NFA cho r1 = 01*, ta tách r1 = r3r4 trong đó r3 = 0 và r4 = 1*"
+          - type: text
+            data: "- NFA cho r3 = 0:"
+          - type: image
+            data: https://res.cloudinary.com/ndd1611/image/upload/v1710997716/images_chatbot_LV/example_r3_equal_0_j3u3zq.png
+          - type: text
+            data: "- NFA cho r4 = 1*, ssử dụng phép bao đóng để xây dựng NFA cho r4:"
+          - type: image
+            data: "https://res.cloudinary.com/ndd1611/image/upload/v1710998020/images_chatbot_LV/example_r4_equal_1_star_aljlct.png"
+          - type: text
+            data: "Theo quy tắc phép nối kết ta xây dựng NFA cho r1 = r3r4 = 01* như sau:"
+          - type: image
+            data: "https://res.cloudinary.com/ndd1611/image/upload/v1710998334/images_chatbot_LV/example_r1_queal_r3_multi_r4_ggmd6j.png"
+          - type: text
+            data: "Sử dụng phép hợp để xây dựng NFA cho r = r1 + r2 = 01* + 1"
+          - type: image
+            data: "https://res.cloudinary.com/ndd1611/image/upload/v1710998696/images_chatbot_LV/NFA_example_3.13_nthn0o.png"
+          - type: text
+            data: ""
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
